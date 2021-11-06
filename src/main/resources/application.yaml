@@ -1,0 +1,21 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: default
+      username: KiQFjWotAQEFgBcleRCjgJwJ
+      password: ++w6OHoblM8OnWvhyEtYYM2P-WlOI96jlE7drNTq2UQbZgZ-QLp_BGBNSMXIzDWW9S8AeIKEh+xTD09dAm1rx,vo7biKDZlWDPTB1xA-dOdkBxG1tOFKx,aaJIrhsAKm
+      schema-action: create_if_not_exists
+      request:
+        timeout: 10s
+      connection:
+        connect-timeout: 10s
+        init-query-timeout: 10s
+
+datastax.astra:
+  secure-connect-bundle: secure-connect-bookopedia.zip
+
+astra.db:
+  id: 0aa06e1a-5429-470d-922d-de740c0a1d5e-1
+  region: asia-south1
+  keyspace: default
+  application.token: AstraCS:KiQFjWotAQEFgBcleRCjgJwJ:1e2772f413e72eeb7e3bacf57176511597ced2534e9d857020a258e86f16b9e9

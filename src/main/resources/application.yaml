@@ -1,9 +1,9 @@
 spring:
   data:
     cassandra:
-      keyspace-name: default
-      username: KiQFjWotAQEFgBcleRCjgJwJ
-      password: ++w6OHoblM8OnWvhyEtYYM2P-WlOI96jlE7drNTq2UQbZgZ-QLp_BGBNSMXIzDWW9S8AeIKEh+xTD09dAm1rx,vo7biKDZlWDPTB1xA-dOdkBxG1tOFKx,aaJIrhsAKm
+      keyspace-name: main
+      username: gumtIaUZwpscEkWrvaQIXanL
+      password: dnWsGyL_.4Y6B8,4IGhj4ia,KMW3ZxGZ,-0.kD5ldsw8LvE3aKp9+rw0AK2ZFvzadH.U648QSqll3ZD.6Pc,6.tK_pz6g395pryZzX-uwUS0MUSYPRoxEdxL,tuPDBmq
       schema-action: create_if_not_exists
       request:
         timeout: 10s
@@ -12,10 +12,10 @@ spring:
         init-query-timeout: 10s
 
 datastax.astra:
-  secure-connect-bundle: secure-connect-bookopedia.zip
+  secure-connect-bundle: bookopedia-secure-bundle.zip
 
 astra.db:
-  id: 0aa06e1a-5429-470d-922d-de740c0a1d5e-1
-  region: asia-south1
-  keyspace: default
-  application.token: AstraCS:KiQFjWotAQEFgBcleRCjgJwJ:1e2772f413e72eeb7e3bacf57176511597ced2534e9d857020a258e86f16b9e9
+  id: d22e3795-a546-4719-b6e7-31db7cb7e0cd-1
+  region: ap-southeast-1
+  keyspace: main
+  application.token: AstraCS:gumtIaUZwpscEkWrvaQIXanL:88bda2ffa82fa00b20f0043885104429a7ad8c48fa4e8c8c4fd19422693967da

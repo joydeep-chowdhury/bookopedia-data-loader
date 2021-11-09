@@ -19,3 +19,7 @@ astra.db:
   region: ap-southeast-1
   keyspace: main
   application.token: AstraCS:gumtIaUZwpscEkWrvaQIXanL:88bda2ffa82fa00b20f0043885104429a7ad8c48fa4e8c8c4fd19422693967da
+
+datadump.location:
+  authors: authors.txt
+  works: works.txt

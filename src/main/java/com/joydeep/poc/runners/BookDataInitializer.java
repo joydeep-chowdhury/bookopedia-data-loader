@@ -21,7 +21,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,17 +35,17 @@ public class BookDataInitializer implements CommandLineRunner {
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
-    private final String bookDumpFilePath;
+    private final DataDumpConfiguration dataDumpConfiguration;
 
     public BookDataInitializer(BookRepository bookRepository, AuthorRepository authorRepository, DataDumpConfiguration dataDumpConfiguration) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
-        this.bookDumpFilePath = dataDumpConfiguration.getWorks();
+        this.dataDumpConfiguration = dataDumpConfiguration;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Path path = Paths.get(ClassLoader.getSystemResource(bookDumpFilePath)
+        Path path = Paths.get(ClassLoader.getSystemResource(dataDumpConfiguration.getWorks())
                                          .toURI());
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
         try (Stream<String> lines = Files.lines(path)) {
@@ -111,7 +110,7 @@ public class BookDataInitializer implements CommandLineRunner {
                 }
             });
         } catch (IOException ioException) {
-            logger.error("Exception while reading file from path {}", bookDumpFilePath);
+            logger.error("Exception while reading file from path {}", dataDumpConfiguration.getWorks());
         }
     }
 }

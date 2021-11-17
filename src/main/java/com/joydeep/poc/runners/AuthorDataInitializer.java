@@ -24,17 +24,17 @@ public class AuthorDataInitializer implements CommandLineRunner {
     private final Logger logger = LoggerFactory.getLogger(AuthorDataInitializer.class);
 
     private final AuthorRepository authorRepository;
-    private final String authorDumpFilePath;
+    private final DataDumpConfiguration dataDumpConfiguration;
 
     public AuthorDataInitializer(AuthorRepository authorRepository, DataDumpConfiguration dataDumpConfiguration) {
         this.authorRepository = authorRepository;
-        authorDumpFilePath = dataDumpConfiguration.getAuthors();
+        this.dataDumpConfiguration = dataDumpConfiguration;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-        Path path= Paths.get(ClassLoader.getSystemResource(authorDumpFilePath).toURI());
+        Path path= Paths.get(ClassLoader.getSystemResource(dataDumpConfiguration.getAuthors()).toURI());
         try(Stream<String> lines = Files.lines(path)){
              lines.forEach(line-> {
                  try {
@@ -53,7 +53,7 @@ public class AuthorDataInitializer implements CommandLineRunner {
              });
         }
         catch (IOException ioException){
-            logger.error("Exception while reading file from path {}", authorDumpFilePath);
+            logger.error("Exception while reading file from path {}", dataDumpConfiguration.getAuthors());
         }
     }
 }
